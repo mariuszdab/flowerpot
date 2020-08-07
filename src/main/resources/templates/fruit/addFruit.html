@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="container p-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form th:object="${fruit}" method="post">
+                <span id="userId" style="display: none"></span>
+                <div class="form-group">
+                    <label for="name">Nazwa sadzonki</label>
+                    <input id="name" type="text" class="form-control" th:field="*{name}" th:errorClass="error"/>
+                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+                </div>
+                <div class="form-group">
+                    <label for="monthToStart">Miesiąc rozpoczęcia</label>
+                    <select class="form-control" th:field="*{monthToStart}"  id="monthToStart">
+                        <option value="">Wybierz miesiąc</option>
+                        <option th:each="monthToStart : ${listOfMonths}" th:value="${monthToStart}" th:text="${monthToStart}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="monthToGetFruit">Miesiąc zbioru</label>
+                    <select class="form-control" th:field="*{monthToGetFruit}"  id="monthToGetFruit">
+                        <option value="">Wybierz miesiąc</option>
+                        <option th:each="monthToGetFruit : ${listOfMonths}" th:value="${monthToGetFruit}" th:text="${monthToGetFruit}"></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Opis</label>
+                    <textarea id="description" type="text" class="form-control" th:field="*{description}" th:errorClass="error"></textarea>
+                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"/>
+                </div>
+                <div class="form-group">
+                    <label for="level">Poziom trudności 1-10</label>
+                    <input id="level" type="text" class="form-control" th:field="*{level}" th:errorClass="error"/>
+                    <span th:if="${#fields.hasErrors('level')}" th:errors="*{level}"/>
+                </div>
+                <div class="form-group">
+                    <label for="temperature">Optymalna temperatura dla sadzonki</label>
+                    <input id="temperature" type="text" class="form-control" th:field="*{temperature}" th:errorClass="error"/>
+                    <span th:if="${#fields.hasErrors('temperature')}" th:errors="*{temperature}"/>
+                </div>
+                <div class="form-group">
+                    <label for="email">Podaj swój email</label>
+                    <input id="email" type="text" class="form-control" th:field="*{user.email}" th:errorClass="error"/>
+                </div>
+                <input id="addButton" type="submit" class="btn btn-primary" value="Dodaj receptę!"/>
+            </form>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div id="accordion">
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

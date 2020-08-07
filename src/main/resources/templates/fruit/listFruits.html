@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+
+<table class="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nazwa sadzonki</th>
+        <th scope="col">Miesiąc sadzenia</th>
+        <th scope="col">Miesiąc zbioru</th>
+        <th scope="col">Opis</th>
+        <th scope="col">Poziom trudności</th>
+        <th scope="col">Temperatura</th>
+        <th scope="col">Użytkownik</th>
+        <th scope="col">Opcje</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="fruit: ${fruits}">
+        <th th:text="${fruit.id}" />
+        <th th:text="${fruit.name}" />
+        <th th:text="${fruit.monthToStart}"/>
+        <th th:text="${fruit.monthToStart}"/>
+        <th th:text="${fruit.description}"/>
+        <th th:text="${fruit.level}"/>
+        <th th:text="${fruit.temperature}"/>
+        <!--<th th:text="${fruit.user.firstName} + ${fruit.user.lastName}"/>-->
+        <td>
+            <a th:href="@{/fruit/delete/{id}(id=${fruit.id})}">Delete</a>
+            <a th:href="@{/fruit/update/{id}(id=${fruit.id})}">Edit</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+</body>
+</html>
