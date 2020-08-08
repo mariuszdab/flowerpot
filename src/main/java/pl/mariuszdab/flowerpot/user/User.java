@@ -59,6 +59,8 @@ public class User {
 
     private Boolean newsletter;
 
+    private Boolean active;
+
     @OneToMany
     @JoinColumn(name = "id_user")
     private List<Flower> userFlowers = new ArrayList<>();
@@ -74,5 +76,7 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-
+    public Set<Role> getRoles() {
+        return roles;
+    }
 }

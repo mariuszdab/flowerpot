@@ -1,5 +1,6 @@
 package pl.mariuszdab.flowerpot.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.mariuszdab.flowerpot.exception.UserExistException;
@@ -13,17 +14,15 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-
     private final UserRepository userRepository;
-    private final UserMappper userMappper;
     private final RoleRepository roleRepository;
-    private final BCryptPasswordEncoder passwordEncoder;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserService(UserRepository userRepository, UserMappper userMappper, RoleRepository roleRepository, BCryptPasswordEncoder passwordEncoder) {
+    @Autowired
+    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
-        this.userMappper = userMappper;
         this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
     public void save(User user){
@@ -31,11 +30,16 @@ public class UserService {
         if(tempUser.isPresent()){
             throw new UserExistException();
         } else {
-            user.setPassword(passwordEncoder.encode(user.getPassword()));
-            Role userRole = roleRepository.findByName("ROLE_USER");
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            Role userRole = roleRepository.findByRole("ADMIN");
+            user.setActive(true);
             user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
             userRepository.save(user);
         }
+    }
+
+    public Optional<User> findByUserEamil(String email) {
+        return userRepository.findByEmail(email);
     }
 
     public User findByUserName(String username){

@@ -22,9 +22,9 @@ insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_
 VALUES ('OK', 5, 'Kwiecien', 'Styczen', 'Sliwka', true , 0, 22, 1);*/
 
 
-insert into flowerPotDB.roles (id, name) VALUES (NULL, 'ROLE_USER');
+insert into flowerPotDB.roles (id, role) VALUES (NULL, 'ROLE_ADMIN');
 
-INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('abc@gmail.com', 'Mariusz', 'Kowalski', false, 'mario', 'admin', 2);
+INSERT INTO flowerPotDB.user (active, email, first_name, last_name, newsletter, nick, password, points) VALUES (false, 'abc@gmail.com', 'Mariusz', 'Kowalski', false, 'mario', 'admin', 2);
 insert into flowerPotDB.user_role (user_id, role_id) VALUES (1, 1);
 
 

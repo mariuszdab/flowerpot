@@ -44,10 +44,9 @@ public class UserController {
         user.setFirstName("admin");
         user.setPassword("admin");
         user.setEmail("tiktok@gmail.com");
+
         userService.save(user);
         return"Admin zarejestrowany";
     }
-
-
 
 }
