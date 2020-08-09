@@ -61,8 +61,7 @@ public class User {
 
     private Boolean active;
 
-    @OneToMany
-    @JoinColumn(name = "id_user")
+    @OneToMany(mappedBy = "user")
     private List<Flower> userFlowers = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")

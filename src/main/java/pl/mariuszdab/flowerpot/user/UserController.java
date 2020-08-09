@@ -37,16 +37,4 @@ public class UserController {
         return "user/error";
     }
 
-    @GetMapping("/admin")
-    @ResponseBody
-    public String addTempUser(){
-        User user = new User();
-        user.setFirstName("admin");
-        user.setPassword("admin");
-        user.setEmail("tiktok@gmail.com");
-
-        userService.save(user);
-        return"Admin zarejestrowany";
-    }
-
 }

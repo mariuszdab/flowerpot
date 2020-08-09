@@ -1,33 +1,26 @@
-/*INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('abc@gmail.com', 'Mariusz', 'Kowalski', false, 'mario', 'admin', 2);
-INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('dab.scy1@gmail.com', 'Michal', 'Korniluk', true, 'mario', 'admin2', 2);
-INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('maariusz.marius@gmail.com', 'Sylwia', 'Lubaszka', true, 'syl', 'test', 2);
-*/
+/*Admin*/
+insert into flowerPotDB.user (first_name, active, password, email, nick) value ('admin', true, '$2a$10$IonuoeuP68nVuYN7ecrkruDMfXztHrqrA/edVWwKHoTopfSrnlP1y', 'admin@gmail.com', 'admin');
 
-/*INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('abc@gmail.com', 'Mariusz', 'Kowalski', false, 'mario', 'admin', 2);
-/*INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('dab.scy1@gmail.com', 'Michal', 'Korniluk', true, 'mario', 'admin2', 2);
-INSERT INTO flowerPotDB.user (email, first_name, last_name, newsletter, nick, password, points) VALUES ('maariusz.marius@gmail.com', 'Sylwia', 'Lubaszka', true, 'syl', 'test', 2);
-*/
-
-
-/*INSERT INTO flowerPotDB.flower (description, level, month_to_start, name, one_year_flower, temperature, id_user)
-VALUES ('Kwiat sadzic po poludniu', 5, 'styczen','Kaktus', true, 17, 1);
-
-insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
-VALUES ('OK', 7, 'Luty', 'Styczen', 'Banan', true , 0, 26, 1);
-
-insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
-VALUES ('OK', 2, 'Marzec', 'Styczen', 'Jablko', true , 0, 21, 1);
-
-insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
-VALUES ('OK', 5, 'Kwiecien', 'Styczen', 'Sliwka', true , 0, 22, 1);*/
-
-
+/*Role*/
 insert into flowerPotDB.roles (id, role) VALUES (NULL, 'ROLE_ADMIN');
-
-INSERT INTO flowerPotDB.user (active, email, first_name, last_name, newsletter, nick, password, points) VALUES (false, 'abc@gmail.com', 'Mariusz', 'Kowalski', false, 'mario', 'admin', 2);
+insert into flowerPotDB.roles (id, role) VALUES (NULL, 'ROLE_USER');
 insert into flowerPotDB.user_role (user_id, role_id) VALUES (1, 1);
 
+/*Fruit*/
+insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
+VALUES ('OK', 7, 'Luty', 'Styczen', 'Banan', true , 0, 26, 1);
+insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
+VALUES ('OK', 2, 'Marzec', 'Styczen', 'Jablko', true , 0, 21, 1);
+insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
+VALUES ('OK', 5, 'Kwiecien', 'Styczen', 'Sliwka', true , 0, 22, 1);
 
+/*Flower*/
+insert into flowerPotDB.flower (description, level, month_to_start, name, one_year_flower, temperature, user_id)
+VALUES ('trudna do sadzenia', 6, 'Luty', 'Kaktus', false, 26, 1);
+insert into flowerPotDB.flower (description, level, month_to_start, name, one_year_flower, temperature, user_id)
+VALUES ('trudna do sadzenia', 6, 'Luty', 'Skrzydlokwiat', false, 20, 1);
+
+/*News*/
 insert into flowerPotDB.news (news) VALUES ('Najstarszym żyjącym dziś gatunkiem drzewa jest miłorząb. Jest on ogniwem łączącym paprotniki z drzewami nagonasiennymi. Na naszej planecie występował już 1250 milionów lat temu. To prawdziwa żywa skamielina.');
 insert into flowerPotDB.news (news) VALUES ('Najdłużej żyjące drzewo na świecie to sosna oścista. Jej wiek naukowcy szacują na 4789 lat.');
 insert into flowerPotDB.news (news) VALUES ('Najpotężniejszym drzewem na świecie pod względem wysokości, grubości, objętości a także długowieczności jest mamutowiec olbrzymi. Drzewo to osiąga 93,6 m wysokości, średnicę korony 33 m, pierśnicę 8,25 m. To prawdziwy olbrzym.');

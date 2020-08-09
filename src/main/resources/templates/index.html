@@ -1,17 +1,42 @@
 <!DOCTYPE html>
+<html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <link th:href="@{/styleCSS/styles.css}" rel="stylesheet"/>
+
 </head>
+
 <body>
- Witaj sadowniku! :)
-<br>
- <a th:href="@{/user/add}">Zarejestruj się</a><br>
- <a th:href="@{/login}">Zaloguj się</a><br>
- <a th:href="@{/fruit/listFruits}">Lista wszystkich przepisów</a><br>
- <a th:href="@{/daily}">Strona z ciekawostką</a><br>
-
-
+    <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-success">
+        <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav flex-grow-1 justify-content-between">
+                    <li class="nav-item" role="presentation"><a class="nav-link flowerPot" th:href="@{/}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Zaloguj się</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/fruit/add}"><i class="fa fa-pagelines"></i>&nbsp;Dodaj roślinę&nbsp;</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/fruit/listFruits}"><i class="fa fa-search"></i>&nbsp;Baza roślin&nbsp;</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-users"></i>&nbsp;Lista użytkowników</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/daily}"><i class="fa fa-thumb-tack"></i>&nbsp;Ciekawostki</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-globe"></i>&nbsp;Lista sklepów</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="product flower">
+        <h1>Witaj sadowniku!</h1>
+        <h2>Baza roślin na wyciągnięcie ręki</h2>
+        <div class="links"><a href="#">Kliknij tutaj i dowiedz się więcej&nbsp;<i class="fa fa-book"></i></a></div><img class="img-fluid" src="styleCSS/flowerTwo.jpg"></section>
+    <section class="product second white">
+        <h1>Podziel się swoim doświadczeniem</h1>
+        <h2>Najciekawsze pomysły w internecie!</h2>
+        <div class="links margin"><a th:href="@{/user/add}">Nie czekaj i zarejestruj się tutaj!&nbsp;<i class="fa fa-pagelines"></i></a></div><img class="img-fluid" src="styleCSS/flowerOne.jpg"></section>
+        <div></div>
 </body>
+
 </html>

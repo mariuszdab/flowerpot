@@ -1,8 +1,7 @@
 package pl.mariuszdab.flowerpot.flower;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import pl.mariuszdab.flowerpot.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -10,6 +9,9 @@ import javax.validation.constraints.*;
 @Getter
 @Setter
 @ToString
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "flower")
 public class Flower {
@@ -23,10 +25,7 @@ public class Flower {
     @Size(max = 20)
     private String name;
 
-    @NotNull
-    @NotBlank
-    @Size(max = 11)
-    private boolean oneYearFlower;
+    private Boolean oneYearFlower;
 
     @NotNull
     @NotBlank
@@ -39,6 +38,10 @@ public class Flower {
     private String description;
 
     @Min(1)
+    @Max(150)
+    private Integer height;
+
+    @Min(1)
     @Max(10)
     private Integer level;
 
@@ -46,7 +49,8 @@ public class Flower {
     @Max(40)
     private Integer temperature;
 
-    private Integer points;
+    @ManyToOne
+    private User user;
 
 
 }

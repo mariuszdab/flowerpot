@@ -10,11 +10,7 @@ import org.springframework.stereotype.Service;
 import pl.mariuszdab.flowerpot.role.Role;
 
 
-import javax.transaction.Transactional;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class MyUserDetailService implements UserDetailsService {
@@ -24,7 +20,7 @@ public class MyUserDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String userName) throws UsernameNotFoundException {
-        User user = userService.findByUserName(userName);
+        User user = userService.findByUserEamil(userName);
         List<GrantedAuthority> authorities = getUserAuthority(user.getRoles());
         return buildUserForAuthentication(user, authorities);
     }

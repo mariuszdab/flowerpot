@@ -1,0 +1,54 @@
+.navbar.navbar-dark.navbar-expand-md.fixed-top.bg-success {
+  background-color: #000!important;
+  opacity: 0.8;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+  font-size: 13px;
+}
+
+body {
+  padding-top: 50px;
+}
+
+.product {
+  padding-top: 100px;
+  text-align: center;
+}
+
+.product h1 {
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.product h2 {
+  font-size: 27px;
+  font-weight: 400;
+}
+
+.product .links {
+  font-size: 20px;
+  margin-bottom: 80px;
+}
+
+.product.flower {
+  background-color: #ffffff;
+}
+
+.product.second {
+  background-color: #77a953;
+}
+
+.product.white {
+  color: #ffff;
+}
+
+.product.white a {
+  color: #ffff;
+}
+
+.product .links.margin {
+  opacity: 0.5;
+}
+
