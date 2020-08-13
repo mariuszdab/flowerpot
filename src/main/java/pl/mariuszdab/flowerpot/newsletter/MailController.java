@@ -22,7 +22,7 @@ public class MailController {
     @Scheduled(cron = "0 0 12 * * SUN")
     public void sendMail() throws MessagingException {
 
-        log.info("Newsletter rozesłany !");
+        log.info("Newsletter rozesłany!");
 
         mailService.findAllUsersWithNewsletter().stream()
                 .forEach(m -> {

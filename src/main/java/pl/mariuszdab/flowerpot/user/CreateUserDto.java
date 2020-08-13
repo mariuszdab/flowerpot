@@ -27,7 +27,4 @@ public class CreateUserDto {
 
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
 }

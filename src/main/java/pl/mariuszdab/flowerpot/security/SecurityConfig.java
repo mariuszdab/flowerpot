@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/fruit/listFruits").hasRole("ADMIN")
                 .antMatchers("/fruit/add").hasRole("ADMIN")
                 .antMatchers("/user/add").permitAll()
-                .antMatchers("/daily").authenticated()
+                .antMatchers("/daily").permitAll()
                 .and().formLogin().loginPage("/login").usernameParameter("email")
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll();

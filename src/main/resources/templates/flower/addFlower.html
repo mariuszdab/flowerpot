@@ -15,6 +15,9 @@
 <div class="container p-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
+
+            <div class="form-group"><h1><center>Dodaj swój kwiat!</center></h1></div>
+
             <form th:object="${flower}" method="post">
 
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
@@ -29,8 +32,9 @@
                     <label for="monthToStart">Miesiąc sadzenia</label>
                     <select class="form-control" th:field="*{monthToStart}"  id="monthToStart">
                         <option value="">Wybierz miesiąc</option>
-                        <option th:each="monthToStart : ${listOfMonths}" th:value="${monthToStart}" th:text="${monthToStart}"></option>
+                        <option th:each="monthToStart : ${listOfMonths}" th:value="${monthToStart}" th:text="${monthToStart}"/>
                     </select>
+                    <span th:if="${#fields.hasErrors('monthToStart')}" th:errors="*{monthToStart}"/>
                 </div>
                 <div class="form-group">
                     <label for="oneYearFlower">Czy roślina jest jednoroczna ?</label>
@@ -38,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Opis</label>
-                    <textarea id="description" type="text" class="form-control" th:field="*{description}" th:errorClass="error"></textarea>
+                    <textarea id="description" type="text" class="form-control" th:field="*{description}"/>
                     <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"/>
                 </div>
                 <div class="form-group">
@@ -62,12 +66,6 @@
                 </div>
                 <input id="addButton" type="submit" class="btn btn-primary" value="Dodaj receptę!"/>
             </form>
-        </div>
-    </div>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div id="accordion">
-            </div>
         </div>
     </div>
 

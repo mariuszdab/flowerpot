@@ -3,10 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link th:href="@{/errorPageStyles/styles.css}" rel="stylesheet"/>
+
 </head>
 <body>
-Dodaleś błędny adres email ! <br>
-Wróć na stronę rejestracji tutaj:
-<a th:href="@{/flower/add}">Kliknij</a><br>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+
+        <!-- Icon -->
+        <div class="fadeIn first">
+            <br>
+            <img class="img-fluid" th:src="@{/errorPageStyles/mike3.jpeg}"><br>
+        </div>
+        <div>
+            Dodałeś błędny adres email!
+        </div>
+        <div>
+            Wróć na stronę rejestracji tutaj:
+        </div>
+        <div>
+            <br>
+            <a th:href="@{/flower/add}"><button type="button" class="btn btn-outline-danger">Kliknij</button></a>
+        </div>
+
+        <div id="formFooter">
+            <a class="underlineHover" th:href="@{/}">Wróć na stronę główną</a>
+        </div>
+
+    </div>
+</div>
+
+
 </body>
 </html>

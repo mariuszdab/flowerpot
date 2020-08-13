@@ -18,10 +18,10 @@
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav flex-grow-1 justify-content-between">
                     <li class="nav-item" role="presentation"><a class="nav-link flowerPot" th:href="@{/}">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">Zaloguj się</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/fruit/add}"><i class="fa fa-pagelines"></i>&nbsp;Dodaj roślinę&nbsp;</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/fruit/listFruits}"><i class="fa fa-search"></i>&nbsp;Baza roślin&nbsp;</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-users"></i>&nbsp;Lista użytkowników</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/login}">Zaloguj się</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/chooseAdd}"><i class="fa fa-pagelines"></i>&nbsp;Dodaj roślinę&nbsp;</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/chooseShow}"><i class="fa fa-search"></i>&nbsp;Baza roślin&nbsp;</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/user/listUsers}"><i class="fa fa-users"></i>&nbsp;Lista użytkowników</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/daily}"><i class="fa fa-thumb-tack"></i>&nbsp;Ciekawostki</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#"><i class="fa fa-globe"></i>&nbsp;Lista sklepów</a></li>
                 </ul>
@@ -31,7 +31,9 @@
     <section class="product flower">
         <h1>Witaj sadowniku!</h1>
         <h2>Baza roślin na wyciągnięcie ręki</h2>
-        <div class="links"><a href="#">Kliknij tutaj i dowiedz się więcej&nbsp;<i class="fa fa-book"></i></a></div><img class="img-fluid" src="styleCSS/flowerTwo.jpg"></section>
+        <div class="links"><a href="#">Kliknij tutaj i dowiedz się więcej&nbsp;<i class="fa fa-book"></i></a></div><img class="img-fluid" src="styleCSS/flowerTwo.jpg">
+    </section>
+
     <section class="product second white">
         <h1>Podziel się swoim doświadczeniem</h1>
         <h2>Najciekawsze pomysły w internecie!</h2>

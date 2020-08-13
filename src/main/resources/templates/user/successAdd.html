@@ -8,12 +8,10 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <link th:href="@{/dailyNewsStyles/styles.css}" rel="stylesheet"/>
+    <link th:href="@{/userStyles/styles.css}" rel="stylesheet"/>
 
 </head>
 <body>
-
-<!--<p th:text="${news}"/>-->
 
 <div class="wrapper fadeInDown">
     <div id="formContent">
@@ -21,22 +19,28 @@
 
         <!-- Icon -->
         <div class="fadeIn first">
-            <img class="img-fluid" th:src="@{/dailyNewsStyles/modern.webp}"><br>
+            <img class="img-fluid" th:src="@{/userStyles/welcome.jpg}"><br>
         </div>
         <div>
             <br>
-            <p type="text" th:text="${news}"/>
+            <p style="font-style: italic"> Dziękujemy za rejestrację. Witamy w grupie sadowników :) </p>
         </div>
         <div>
-            <p style="font-style: italic"> Wróć tutaj za minutę by przeczytać nową fascynującą ciekawostkę ;) </p>
             <br>
+            Zaloguj się tutaj by móc swobodnie przegladać wszystkie strony:
         </div>
+        <div>
+            <br>
+            <a th:href="@{/login}"><button type="button" class="btn btn-outline-danger">Kliknij</button></a>
+        </div>
+
         <div id="formFooter">
             <a class="underlineHover" th:href="@{/}">Wróć na stronę główną</a>
         </div>
 
     </div>
 </div>
+
 
 </body>
 </html>

@@ -37,14 +37,17 @@ public class Flower {
     @Size(max = 600)
     private String description;
 
+    @NotNull
     @Min(1)
-    @Max(150)
+    @Max(200)
     private Integer height;
 
+    @NotNull
     @Min(1)
     @Max(10)
     private Integer level;
 
+    @NotNull
     @Min(10)
     @Max(40)
     private Integer temperature;

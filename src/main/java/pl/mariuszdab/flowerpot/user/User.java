@@ -42,6 +42,7 @@ public class User {
     @NotNull
     @NotBlank
     @Size(max = 10)
+    @Column(unique = true)
     private String nick;
 
     @NotNull
@@ -75,7 +76,7 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    public Set<Role> getRoles() {
+    /*public Set<Role> getRoles() {
         return roles;
-    }
+    }*/
 }

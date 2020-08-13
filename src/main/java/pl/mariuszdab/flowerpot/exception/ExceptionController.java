@@ -18,7 +18,7 @@ public class ExceptionController {
 
     @ExceptionHandler(value = UserExistException.class)
     public String exe (UserExistException e){
-        return "redirect:./error";
+        return "redirect:./errorAdd";
     }
 
 }

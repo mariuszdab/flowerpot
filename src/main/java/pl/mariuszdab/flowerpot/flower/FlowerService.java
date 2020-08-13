@@ -61,7 +61,6 @@ public class FlowerService {
         return flower;
     }
 
-
     public Flower addFlowerWithUser(Flower flower) {
         Optional<User> user = userRepository.findByEmail(flower.getUser().getEmail());
         try{

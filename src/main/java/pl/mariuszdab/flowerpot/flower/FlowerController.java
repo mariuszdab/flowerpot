@@ -27,8 +27,9 @@ public class FlowerController {
     }
 
     @PostMapping("/add")
-    public String addNewFlowerToDb(@ModelAttribute @Valid Flower flower, BindingResult result){
+    public String addNewFlowerToDb(@ModelAttribute @Valid Flower flower, BindingResult result, Model model){
         if (result.hasErrors() ){
+            model.addAttribute("listOfMonths", flowerService.listOfMonths());
             return "flower/addFlower";
         }
         flowerService.save(flower);
@@ -55,15 +56,16 @@ public class FlowerController {
     }
 
     @PostMapping("/update/{id}")
-    public String saveUpdateFlower(@ModelAttribute @Valid Flower flower, BindingResult result, @PathVariable Long id){
+    public String saveUpdateFlower(@ModelAttribute @Valid Flower flower, BindingResult result, @PathVariable Long id, Model model){
         if (result.hasErrors() ){
+            model.addAttribute("listOfMonths", flowerService.listOfMonths());
             return "flower/addFlower";
         }
         flowerService.update(id, flower);
         return "redirect:../listFlowers";
     }
 
-    @GetMapping("/error")
+    @GetMapping("/errorAdd")
     public String errorAdd(){
         return "flower/errorAdd";
     }
@@ -73,10 +75,5 @@ public class FlowerController {
         return "flower/errorUpdate";
     }
 
-    @GetMapping("/test")
-    @ResponseBody
-    public String test(){
-        return "test udany !";
-    }
 
 }

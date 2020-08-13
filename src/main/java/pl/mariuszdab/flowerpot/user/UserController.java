@@ -29,12 +29,18 @@ public class UserController {
             return "user/userRegistration";
         }
         userService.save(user);
-        return "success";
+        return "user/successAdd";
     }
 
-    @GetMapping("/error")
+    @GetMapping("/errorAdd")
     public String errorAdd(){
-        return "user/error";
+        return "user/errorAdd";
+    }
+
+    @GetMapping("/listUsers")
+    public String listOfUsers(Model model){
+        model.addAttribute("users", userService.findAll());
+        return "user/listUsers";
     }
 
 }

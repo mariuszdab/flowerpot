@@ -25,8 +25,9 @@ public class FruitController {
     }
 
     @PostMapping("/add")
-    public String addNewFruitToDB(@ModelAttribute @Valid Fruit fruit, BindingResult result){
+    public String addNewFruitToDB(@ModelAttribute @Valid Fruit fruit, BindingResult result, Model model){
         if (result.hasErrors() ){
+            model.addAttribute("listOfMonths", fruitService.listOfMonths());
             return "fruit/addFruit";
         }
         fruitService.save(fruit);
@@ -53,15 +54,16 @@ public class FruitController {
     }
 
     @PostMapping("/update/{id}")
-    public String saveUpdateFruit(@ModelAttribute @Valid Fruit fruit, BindingResult result, @PathVariable Long id){
+    public String saveUpdateFruit(@ModelAttribute @Valid Fruit fruit, BindingResult result, @PathVariable Long id, Model model){
         if (result.hasErrors() ){
+            model.addAttribute("listOfMonths", fruitService.listOfMonths());
             return "fruit/addFruit";
         }
         fruitService.update(id, fruit);
         return "redirect:../listFruits";
     }
 
-    @GetMapping("/error")
+    @GetMapping("/errorAdd")
     public String errorAdd(){
         return "fruit/errorAdd";
     }
@@ -70,7 +72,5 @@ public class FruitController {
     public String errorUpdate(){
         return "fruit/errorUpdate";
     }
-
-
 
 }
