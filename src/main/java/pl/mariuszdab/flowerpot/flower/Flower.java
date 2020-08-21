@@ -8,7 +8,6 @@ import javax.validation.constraints.*;
 
 @Getter
 @Setter
-@ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -54,6 +53,5 @@ public class Flower {
 
     @ManyToOne
     private User user;
-
 
 }

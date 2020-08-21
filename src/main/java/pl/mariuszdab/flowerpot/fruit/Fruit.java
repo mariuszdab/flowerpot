@@ -9,10 +9,10 @@ import javax.validation.constraints.*;
 @Getter
 @Setter
 @Builder
-@ToString
 @Entity
 @Table(name = "fruit")
 @AllArgsConstructor
+@NoArgsConstructor
 public class Fruit {
 
     @Id
@@ -54,6 +54,4 @@ public class Fruit {
     @ManyToOne
     private User user;
 
-    public Fruit() {
-    }
 }

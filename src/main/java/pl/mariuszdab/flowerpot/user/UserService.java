@@ -1,32 +1,23 @@
 package pl.mariuszdab.flowerpot.user;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.mariuszdab.flowerpot.exception.UserExistException;
-import pl.mariuszdab.flowerpot.fruit.FruitDto;
 import pl.mariuszdab.flowerpot.role.Role;
 import pl.mariuszdab.flowerpot.role.RoleRepository;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final UserMappper userMappper;
-
-    public UserService(UserRepository userRepository, RoleRepository roleRepository, BCryptPasswordEncoder bCryptPasswordEncoder, UserMappper userMappper) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
-        this.userMappper = userMappper;
-    }
 
     public void save(User user){
         Optional<User> tempUser = userRepository.findByEmail(user.getEmail());
@@ -47,13 +38,19 @@ public class UserService {
     }
 
     public List<UserDto> findAll(){
-        List<UserDto> userListDto = userRepository.findAll().stream()
+        return userRepository.findAll().stream()
                 .map(userMappper::EntityToDto)
                 .collect(Collectors.toList());
-
-        return userListDto;
     }
 
+    public List<UserDto> findRandomTenUsers(){
+        List<UserDto> userListDto = findAll();
+        userListDto.remove(0);
+        Collections.shuffle(userListDto, new Random());
 
+        return userListDto.stream()
+                .limit(5L)
+                .collect(Collectors.toList());
+    }
 
 }

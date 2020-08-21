@@ -1,0 +1,31 @@
+input.error { border-color: red }
+
+textarea.error { border-color: red }
+
+select.error { border-color: red }
+
+label {
+    color: forestgreen;
+    font-weight: bold;
+}
+
+p.p-errors {
+    text-align: right;
+    font-style: italic;
+}
+
+input.btn-primary {
+    background-color: forestgreen;
+    border: forestgreen;
+}
+
+table {text-align: center}
+
+thead.fruit-nav {
+    background-color: forestgreen;
+    border: forestgreen
+}
+
+a.link-list {
+    color: forestgreen;
+}

@@ -1,6 +1,7 @@
 package pl.mariuszdab.flowerpot.fruit;
 
 import javassist.NotFoundException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.mariuszdab.flowerpot.exception.UserNotFoundException;
@@ -13,17 +14,12 @@ import java.util.stream.Collectors;
 
 @Service
 @Slf4j
+@RequiredArgsConstructor
 public class FruitService {
 
     private final UserRepository userRepository;
     private final FruitRepository fruitRepository;
     private  final FruitMapper fruitMapper;
-
-    public FruitService(UserRepository userRepository, FruitRepository fruitRepository, FruitMapper fruitMapper) {
-        this.userRepository = userRepository;
-        this.fruitRepository = fruitRepository;
-        this.fruitMapper = fruitMapper;
-    }
 
     public Fruit addFruitWithUser(Fruit fruit) {
         Optional<User> user = userRepository.findByEmail(fruit.getUser().getEmail());
@@ -69,8 +65,7 @@ public class FruitService {
     }
 
     public List<String> listOfMonths(){
-        List<String> listOfMonths = List.of("Styczen", "Luty", "Marzec", "Kwiecien", "Maj", "Czerwiec", "Lipiec", "Sierpien", "Wrzesien", "Pazdziernik", "Listopad", "Grudzien");
-        return listOfMonths;
+        return List.of("Styczen", "Luty", "Marzec", "Kwiecien", "Maj", "Czerwiec", "Lipiec", "Sierpien", "Wrzesien", "Pazdziernik", "Listopad", "Grudzien");
     }
 
 

@@ -4,21 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <title>Flowerpot</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
     <link th:href="@{/styleCSS/styles.css}" rel="stylesheet"/>
 
 </head>
 
 <body>
+
     <nav class="navbar navbar-dark navbar-expand-md fixed-top bg-success">
         <div class="container"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="nav navbar-nav flex-grow-1 justify-content-between">
-                    <li class="nav-item" role="presentation"><a class="nav-link flowerPot" th:href="@{/}">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link flowerPot" th:href="@{/user/add}">Dołącz do nas!</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/login}">Zaloguj się</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/logout}">Wyloguj się</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/chooseAdd}"><i class="fa fa-pagelines"></i>&nbsp;Dodaj roślinę&nbsp;</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/chooseShow}"><i class="fa fa-search"></i>&nbsp;Baza roślin&nbsp;</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" th:href="@{/user/listUsers}"><i class="fa fa-users"></i>&nbsp;Lista użytkowników</a></li>
@@ -31,14 +32,8 @@
     <section class="product flower">
         <h1>Witaj sadowniku!</h1>
         <h2>Baza roślin na wyciągnięcie ręki</h2>
-        <div class="links"><a href="#">Kliknij tutaj i dowiedz się więcej&nbsp;<i class="fa fa-book"></i></a></div><img class="img-fluid" src="styleCSS/flowerTwo.jpg">
+        <div class="links"><a href="#">Kliknij tutaj i dowiedz się więcej&nbsp;<i class="fa fa-book"></i></a></div><img class="img-fluid" src="styleCSS/downImg.jpg">
     </section>
 
-    <section class="product second white">
-        <h1>Podziel się swoim doświadczeniem</h1>
-        <h2>Najciekawsze pomysły w internecie!</h2>
-        <div class="links margin"><a th:href="@{/user/add}">Nie czekaj i zarejestruj się tutaj!&nbsp;<i class="fa fa-pagelines"></i></a></div><img class="img-fluid" src="styleCSS/flowerOne.jpg"></section>
-        <div></div>
 </body>
-
 </html>

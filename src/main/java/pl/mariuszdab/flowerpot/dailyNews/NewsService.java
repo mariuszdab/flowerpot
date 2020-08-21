@@ -24,11 +24,10 @@ public class NewsService {
     }
 
     @Scheduled(cron = "0 * * * * *")
-    public String generateNews() {
+    public void generateNews() {
         List<News> listOfNews = newsRepository.findAll();
         Collections.shuffle(listOfNews, new Random());
         news = listOfNews.get(0).getNews();
         log.info("Nowy news !!!!");
-        return news;
     }
 }

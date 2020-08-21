@@ -1,6 +1,10 @@
 
 /* BASIC */
 
+html {
+    background-color: forestgreen;
+}
+
 body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
@@ -171,14 +175,7 @@ input[type=password]:placeholder {
     color: #cccccc;
 }
 
-input.error { border-color: red }
 
-textarea.error { border-color: red }
-
-select.error { border-color: red }
-
-
-table {text-align: center}
 
 /* ANIMATIONS */
 

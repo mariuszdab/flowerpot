@@ -1,5 +1,6 @@
 package pl.mariuszdab.flowerpot.fruit;
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,18 +20,18 @@ public class FruitController {
 
     @GetMapping("/add")
     public String addNewFruit(Model model){
-        model.addAttribute("fruit", new Fruit());
+        model.addAttribute("newFruit", new Fruit());
         model.addAttribute("listOfMonths", fruitService.listOfMonths());
         return "fruit/addFruit";
     }
 
     @PostMapping("/add")
-    public String addNewFruitToDB(@ModelAttribute @Valid Fruit fruit, BindingResult result, Model model){
+    public String addNewFruitToDB(@ModelAttribute("newFruit") @Valid Fruit newFruit, BindingResult result, Model model){
         if (result.hasErrors() ){
             model.addAttribute("listOfMonths", fruitService.listOfMonths());
             return "fruit/addFruit";
         }
-        fruitService.save(fruit);
+        fruitService.save(newFruit);
         return "redirect:listFruits";
     }
 
@@ -40,26 +41,29 @@ public class FruitController {
         return "fruit/listFruits";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         fruitService.delete(id);
         return "redirect:../listFruits";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/update/{id}")
     public String updateFruit(@PathVariable Long id, Model model){
-        model.addAttribute("fruit", fruitService.findUpdateFruitByUserId(id));
+        model.addAttribute("newFruit", fruitService.findUpdateFruitByUserId(id));
         model.addAttribute("listOfMonths", fruitService.listOfMonths());
         return "fruit/addFruit";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/update/{id}")
-    public String saveUpdateFruit(@ModelAttribute @Valid Fruit fruit, BindingResult result, @PathVariable Long id, Model model){
+    public String saveUpdateFruit(@ModelAttribute("newFruit") @Valid Fruit newFruit, BindingResult result, @PathVariable Long id, Model model){
         if (result.hasErrors() ){
             model.addAttribute("listOfMonths", fruitService.listOfMonths());
             return "fruit/addFruit";
         }
-        fruitService.update(id, fruit);
+        fruitService.update(id, newFruit);
         return "redirect:../listFruits";
     }
 

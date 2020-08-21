@@ -1,11 +1,11 @@
 package pl.mariuszdab.flowerpot.fruit;
 
-
 import lombok.*;
 
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class FruitDto {
 
     private Long id;
@@ -16,6 +16,4 @@ public class FruitDto {
     private Integer level;
     private Integer temperature;
 
-    public FruitDto() {
-    }
 }

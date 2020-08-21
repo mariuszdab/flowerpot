@@ -3,6 +3,7 @@ package pl.mariuszdab.flowerpot.user;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import pl.mariuszdab.flowerpot.role.Role;
 
 import java.util.Set;
@@ -11,6 +12,7 @@ import java.util.Set;
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class CreateUserDto {
 
     private Long id;
@@ -23,8 +25,5 @@ public class CreateUserDto {
     private Boolean active;
     private Set<Role> roles;
 
-    public CreateUserDto() {
-
-    }
 
 }

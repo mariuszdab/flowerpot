@@ -15,18 +15,4 @@ public class UserMappper {
                 .build();
     }
 
-    /*public CreateUserDto EntityToSaveInDb(User user){
-
-        return new User().builder()
-                .id(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .nick(user.getNick())
-                .email(user.getEmail())
-                .newsletter(user.getNewsletter())
-                .active(user.getActive())
-                .build();
-    }*/
-
-
 }

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link th:href="@{/accessDeniedStyles/styles.css}" rel="stylesheet"/>
+
+</head>
+<body>
+
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+
+        <div>
+            <br>
+            <p style="font-style: italic"> Niestety, ale nie masz dostępu do tej strony z powodu braku uprawnień. </p>
+            <br>
+        </div>
+
+        <div>
+            <a th:href="@{/login}"><button type="button" class="btn btn-outline-danger">Zaloguj się</button></a>
+        </div>
+
+        <div>
+            <a th:href="@{/}"><button type="button" class="btn btn-outline-success">Wróć na stronę główną</button></a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

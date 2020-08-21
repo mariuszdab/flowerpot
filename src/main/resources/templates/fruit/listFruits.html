@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
+    <link th:href="@{/formStyles/styles.css}" rel="stylesheet"/>
 
 </head>
 <body>
 
 
 <table class="table">
-    <thead class="thead-dark">
+    <thead class="fruit-nav">
     <tr>
         <th scope="col">#</th>
-        <th scope="col">Nazwa sadzonki</th>
+        <th scope="col">Nazwa owoca</th>
         <th scope="col">Miesiąc sadzenia</th>
         <th scope="col">Miesiąc zbioru</th>
         <th scope="col">Opis</th>
         <th scope="col">Poziom trudności</th>
         <th scope="col">Temperatura</th>
-        <th scope="col">Użytkownik</th>
         <th scope="col">Opcje</th>
     </tr>
     </thead>
@@ -36,15 +35,17 @@
         <th th:text="${fruit.description}"/>
         <th th:text="${fruit.level}"/>
         <th th:text="${fruit.temperature}"/>
-        <!--<th th:text="${fruit.user.firstName} + ${fruit.user.lastName}"/>-->
+
         <td>
-            <a th:href="@{/fruit/delete/{id}(id=${fruit.id})}">Delete</a>
-            <a th:href="@{/fruit/update/{id}(id=${fruit.id})}">Edit</a>
+            <a class="link-list" th:href="@{/fruit/delete/{id}(id=${fruit.id})}" onclick="return confirm('Na pewno chcesz usunąć ten owoc?');">Delete</a>
+            <a class="link-list" th:href="@{/fruit/update/{id}(id=${fruit.id})}">Edit</a>
         </td>
     </tr>
     </tbody>
 </table>
-
+<br>
+<center><a th:href="@{/fruit/add}"><input id="addPage" type="button" class="btn btn-primary" value="Dodaj owoc"/></a></center><br>
+<center><a th:href="@{/}"><input id="homePage" type="button" class="btn btn-primary" value="Powrót na stronę główną"/></a></center>
 
 </body>
 </html>

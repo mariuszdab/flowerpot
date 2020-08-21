@@ -1,6 +1,7 @@
 package pl.mariuszdab.flowerpot.flower;
 
 
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -21,18 +22,18 @@ public class FlowerController {
 
     @GetMapping("/add")
     public String addNewFlower(Model model){
-        model.addAttribute("flower", new Flower());
+        model.addAttribute("newFlower", new Flower());
         model.addAttribute("listOfMonths", flowerService.listOfMonths());
         return "flower/addFlower";
     }
 
     @PostMapping("/add")
-    public String addNewFlowerToDb(@ModelAttribute @Valid Flower flower, BindingResult result, Model model){
+    public String addNewFlowerToDb(@ModelAttribute("newFlower") @Valid Flower newFlower, BindingResult result, Model model){
         if (result.hasErrors() ){
             model.addAttribute("listOfMonths", flowerService.listOfMonths());
             return "flower/addFlower";
         }
-        flowerService.save(flower);
+        flowerService.save(newFlower);
         return "redirect:listFlowers";
     }
 
@@ -42,26 +43,29 @@ public class FlowerController {
         return "flower/listFlowers";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Long id) {
         flowerService.delete(id);
         return "redirect:../listFlowers";
     }
 
+    @Secured("ROLE_ADMIN")
     @GetMapping("/update/{id}")
     public String updateFlower(@PathVariable Long id, Model model){
-        model.addAttribute("flower", flowerService.findUpdateFlowerByUserId(id));
+        model.addAttribute("newFlower", flowerService.findUpdateFlowerByUserId(id));
         model.addAttribute("listOfMonths", flowerService.listOfMonths());
         return "flower/addFlower";
     }
 
+    @Secured("ROLE_ADMIN")
     @PostMapping("/update/{id}")
-    public String saveUpdateFlower(@ModelAttribute @Valid Flower flower, BindingResult result, @PathVariable Long id, Model model){
+    public String saveUpdateFlower(@ModelAttribute("newFlower") @Valid Flower newFlower, BindingResult result, @PathVariable Long id, Model model){
         if (result.hasErrors() ){
             model.addAttribute("listOfMonths", flowerService.listOfMonths());
             return "flower/addFlower";
         }
-        flowerService.update(id, flower);
+        flowerService.update(id, newFlower);
         return "redirect:../listFlowers";
     }
 

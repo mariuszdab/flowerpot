@@ -5,36 +5,35 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-    <link th:href="@{/styles/main.css}" rel="stylesheet"/>
-
+    <link th:href="@{/formStyles/styles.css}" rel="stylesheet"/>
 </head>
+
 <body>
 
-<section class="product flower">
 <div class="container p-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
 
-            <div class="form-group"><h1><center>Dodaj swój kwiat!</center></h1></div>
+            <div class="form-group"><h1><center>Dodaj swój kwiat do bazy !</center></h1></div>
 
-            <form th:object="${flower}" method="post">
+            <form th:object="${newFlower}" method="post">
 
                 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 
                 <span id="userId" style="display: none"></span>
+
                 <div class="form-group">
                     <label for="name">Nazwa sadzonki</label>
                     <input id="name" type="text" class="form-control" th:field="*{name}" th:errorClass="error"/>
-                    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
+                    <p class="p-errors"><span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/></p>
                 </div>
                 <div class="form-group">
-                    <label for="monthToStart">Miesiąc sadzenia</label>
-                    <select class="form-control" th:field="*{monthToStart}"  id="monthToStart">
+                    <label for="monthToStart" style="color: forestgreen">Miesiąc sadzenia</label>
+                    <select class="form-control" th:field="*{monthToStart}"  id="monthToStart" th:errorClass="error">
                         <option value="">Wybierz miesiąc</option>
                         <option th:each="monthToStart : ${listOfMonths}" th:value="${monthToStart}" th:text="${monthToStart}"/>
                     </select>
-                    <span th:if="${#fields.hasErrors('monthToStart')}" th:errors="*{monthToStart}"/>
+                    <p class="p-errors"><span th:if="${#fields.hasErrors('monthToStart')}" th:errors="*{monthToStart}"/></p>
                 </div>
                 <div class="form-group">
                     <label for="oneYearFlower">Czy roślina jest jednoroczna ?</label>
@@ -42,36 +41,34 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Opis</label>
-                    <textarea id="description" type="text" class="form-control" th:field="*{description}"/>
-                    <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"/>
+                    <textarea id="description" type="text" class="form-control" th:field="*{description}" th:errorClass="error"/>
+                    <p class="p-errors"><span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"/></p>
                 </div>
                 <div class="form-group">
                     <label for="height">Wysokość kwiata w cm</label>
                     <input id="height" type="text" class="form-control" th:field="*{height}" th:errorClass="error"/>
-                    <span th:if="${#fields.hasErrors('height')}" th:errors="*{height}"/>
+                    <p class="p-errors"><span th:if="${#fields.hasErrors('height')}" th:errors="*{height}"/></p>
                 </div>
                 <div class="form-group">
                     <label for="level">Poziom trudności hodowli 1-10</label>
                     <input id="level" type="text" class="form-control" th:field="*{level}" th:errorClass="error"/>
-                    <span th:if="${#fields.hasErrors('level')}" th:errors="*{level}"/>
+                    <p class="p-errors"><span th:if="${#fields.hasErrors('level')}" th:errors="*{level}"/></p>
                 </div>
                 <div class="form-group">
                     <label for="temperature">Optymalna temperatura dla sadzonki</label>
                     <input id="temperature" type="text" class="form-control" th:field="*{temperature}" th:errorClass="error"/>
-                    <span th:if="${#fields.hasErrors('temperature')}" th:errors="*{temperature}"/>
+                    <p class="p-errors"><span th:if="${#fields.hasErrors('temperature')}" th:errors="*{temperature}"/></p>
                 </div>
                 <div class="form-group">
                     <label for="email">Podaj swój email</label>
                     <input id="email" type="text" class="form-control" th:field="*{user.email}" th:errorClass="error"/>
                 </div>
-                <input id="addButton" type="submit" class="btn btn-primary" value="Dodaj receptę!"/>
+                <center><input id="addButton" type="submit" class="btn btn-primary" value="Dodaj receptę!"/></center><br>
+                <center><a th:href="@{/}"><input id="homePage" type="button" class="btn btn-primary" value="Powrót na stronę główną"/></a></center>
             </form>
         </div>
     </div>
-
 </div>
-</section>
-
 
 </body>
 </html>

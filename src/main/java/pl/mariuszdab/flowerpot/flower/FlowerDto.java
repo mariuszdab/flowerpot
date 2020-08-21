@@ -3,11 +3,12 @@ package pl.mariuszdab.flowerpot.flower;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import pl.mariuszdab.flowerpot.user.User;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class FlowerDto {
 
     private Long id;
@@ -17,10 +18,6 @@ public class FlowerDto {
     private String description;
     private Integer level;
     private Integer temperature;
-
-    public FlowerDto(){
-
-    }
 
 
 }

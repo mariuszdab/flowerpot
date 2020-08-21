@@ -23,19 +23,21 @@
         <div class="fadeIn first">
             <img class="img-fluid" th:src="@{/userStyles/icon.jpg}"><br>
         </div>
-        <div>
-            <p style="font-style: italic"> Zaufali nam już ..  </p>
-            <br>
-        </div>
-        <div>
 
+            <p style="font-style: italic"> Zaufali nam już.. </p>
+
+        <div style="font-weight: bold" >
             <tr th:each="user: ${users}">
-                <th th:text="${user.nick}" /><br>
+                <th th:text="${user.nick}"/><br>
             </tr>
-
         </div>
+
+            <p style="font-style: italic"> i inni.. </p>
+
         <div>
             <br>
+            <p style="font-style: italic">W sumie jest nas już...</p>
+            <p th:text="${allUsers}"/>
             <p style="font-style: italic"> Dołącz i TY ;)  </p>
             <br>
         </div>

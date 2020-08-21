@@ -2,11 +2,9 @@ package pl.mariuszdab.flowerpot.user;
 
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 import pl.mariuszdab.flowerpot.flower.Flower;
 import pl.mariuszdab.flowerpot.fruit.Fruit;
 import pl.mariuszdab.flowerpot.role.Role;
-import pl.mariuszdab.flowerpot.validation.EmailCheckInDB;
 import pl.mariuszdab.flowerpot.vegetable.Vegetable;
 
 import javax.persistence.*;
@@ -20,7 +18,6 @@ import java.util.Set;
 
 @Getter
 @Setter
-@ToString
 @Entity
 @Table(name = "user")
 public class User {
@@ -76,7 +73,4 @@ public class User {
     @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    /*public Set<Role> getRoles() {
-        return roles;
-    }*/
 }

@@ -1,10 +1,19 @@
 /*Admin*/
 insert into flowerPotDB.user (first_name, active, password, email, nick) value ('admin', true, '$2a$10$IonuoeuP68nVuYN7ecrkruDMfXztHrqrA/edVWwKHoTopfSrnlP1y', 'admin@gmail.com', 'admin');
 
+/*Users*/
+insert into flowerPotDB.user (first_name, active, password, email, nick) value ('Mieszko', true, '$2a$10$QTTOhqueb5kRouTKncQnYeQxysk6tyX12g2RZbWfA1rpq770wFA2u', 'mieszko@gmail.com', 'mieszko');
+insert into flowerPotDB.user (first_name, active, password, email, nick) value ('Zygmunt', true, '$2a$10$QTTOhqueb5kRouTKncQnYeQxysk6tyX12g2RZbWfA1rpq770wFA2u', 'waza@gmail.com', 'waza');
+insert into flowerPotDB.user (first_name, active, password, email, nick) value ('Boleslaw', true, '$2a$10$QTTOhqueb5kRouTKncQnYeQxysk6tyX12g2RZbWfA1rpq770wFA2u', 'bolek@gmail.com', 'bolek');
+
+
 /*Role*/
 insert into flowerPotDB.roles (id, role) VALUES (NULL, 'ROLE_ADMIN');
 insert into flowerPotDB.roles (id, role) VALUES (NULL, 'ROLE_USER');
 insert into flowerPotDB.user_role (user_id, role_id) VALUES (1, 1);
+insert into flowerPotDB.user_role (user_id, role_id) VALUES (2, 2);
+insert into flowerPotDB.user_role (user_id, role_id) VALUES (3, 2);
+insert into flowerPotDB.user_role (user_id, role_id) VALUES (4, 2);
 
 /*Fruit*/
 insert into flowerPotDB.fruit (description, level, month_to_get_fruit, month_to_start, name, one_year_flower, points, temperature, user_id)
